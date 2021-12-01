@@ -1,58 +1,35 @@
 import React from 'react'
 import "./about.css";
-import dharil from "../images/dharil.png";
-import jay from "../images/JAY.jpg";
-import bhavesh from "../images/bhavesh.jpg";
 
 const About = () => {
     return (
         <>
-            <div className="about-section">
-                <h1>About Us</h1>
-                <p>Some Information about who we are and what we do.</p>
-            </div>
-
-            <h2 style="text-align:center">Our Team</h2>
-            <div className="row">
-                <div className="column">
-                    <div className="card">
-                        <img src={dharil} alt="Dharil" style="width:100%"/>
-                        <div className ="container">
-                        <h2>Dharil Patel</h2>
-                        <p className ="title">Full Stack Developer</p>
-                        <p>CEO OF THE MINE STOCKS</p>
-                        <p>dharilpatel61857@example.com</p>
-                        <p><button className ="button">Contact</button></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="column">
-                    <div className="card">
-                        <img src={jay} alt="Jay" style="width:100%"/>
-                        <div className ="container">
-                        <h2>Jay Gangani</h2>
-                        <p className ="title">Web Developer</p>
-                        <p>FOUNDER OF THE MINE STOCKS</p>
-                        <p>jay@example.com</p>
-                        <p><button className ="button">Contact</button></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="column">
-                    <div className="card">
-                        <img src={bhavesh} alt="Bhavesh" style="width:100%"/>
-                        <div className ="container">
-                        <h2>Bhavesh shelar</h2>
-                        <p className ="title">Python Developer</p>
-                        <p>CO-FOUNDER OF THE MINE STOCKS</p>
-                        <p>bhavesh@example.com</p>
-                        <p><button className ="button">Contact</button></p>
-                        </div>
-                    </div>
-                </div>
-</div>
+             <section className="text-center about">
+      <h1>About US</h1>
+      <hr/>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-4 col-sm-6 col-ex-12 about-item wow lightSpeedIn" data-wow-offset="200" >
+            <span className="fa fa-user-friends"></span>
+            <h2>Our Team</h2>
+            <h4 className="lead">We have a Good team with good team management, also we have skilled people with experience</h4>
+          </div>
+          <div className="col-lg-4 col-sm-6 col-ex-12 about-item wow lightSpeedIn" data-wow-offset="200">
+            <span className="fa fa-info"></span>
+            <h2>What we do</h2>
+            <h4 className="lead">We are the developers,we are doing prediction of stock and based on prediction user can buy particular stock</h4>
+          </div>
+          <div className="clearfix visible-md-block visible-sm-block"></div>
+          <div className="col-lg-4 col-sm-6 col-ex-12 about-item wow lightSpeedIn" data-wow-offset="200">
+            <span className="fa fa-file"></span>
+            <h2>Goal</h2>
+            <h4 className="lead">Our goal is to fulfill user requirements, give a best accuracy and performance will be high for particular stock</h4>
+          </div>
+          
+        </div>
+        
+      </div>
+    </section>
         </>
     )   
 }

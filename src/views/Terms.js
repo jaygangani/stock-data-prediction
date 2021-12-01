@@ -35,7 +35,7 @@ function Terms() {
             <p class="p1">MINE STOCKS may revise these Terms of Use for its Website at any time without prior notice. By using this Website, you are agreeing to be bound by the current version of these Terms and Conditions of Use.</p>
 
             <h4 class="title">8. Governing Law</h4>
-            <p class="p1">Any claim related to MINE STOCKS Website shall be governed by the laws of Belgium without regards to its conflict of law provisions.</p>
+            <p class="p1">Any claim related to MINE STOCKS Website shall be governed by the laws of India without regards to its conflict of law provisions.</p>
 
            
         </div>
