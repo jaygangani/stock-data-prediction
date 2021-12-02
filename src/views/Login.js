@@ -2,7 +2,6 @@
 // import { db } from 'Firebase';
 // import { auth } from 'Firebase';
 import React, { useEffect, useState } from 'react'
-import { Alert } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link,useHistory } from 'react-router-dom';
 import { setuser, setloader } from 'Reducer/Action';
@@ -111,6 +110,10 @@ const Login = (props) => {
                 <button type="submit" onClick={formSubmit} style={{justifyContent:"center"}} className="btn btn-dark">Login</button>
                 <p className="forgot-password text-right mt-2">
                     New to Mine Stocks ? <Link to="/Register">Register </Link>
+                </p>
+                
+                <p className="forgot-password text-right mt-2">
+                    <Link to="/reset-password">Forget Password</Link>
                 </p>
                 
             </form>
