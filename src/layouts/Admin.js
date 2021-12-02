@@ -18,6 +18,7 @@ import Plans from "views/Plans";
 import Login from "views/Login";
 import Terms from "views/Terms";
 import Register from "views/Register";
+import Reset from "views/Reset";
 // import { firebaseApp } from "Firebase";
 // import { auth } from 'Firebase';
 import { auth,db } from "../firebase";
@@ -111,6 +112,7 @@ dispatch(setloader(false))
               <Route exact path="/login" render = {()=><Login notify={notify} />} />
               <Route exact path="/register" render={() => <Register notify={notify} />} />
               <Route exact path="/Terms" component={Terms} />
+              <Route exact path="/reset-password" render={() => <Reset notify={notify} />} />
               <Route component={Error} />
             </Switch>
           </div>
