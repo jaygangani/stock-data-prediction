@@ -96,7 +96,7 @@ function Predict() {
                 {predictedPrice > 0 &&
                     <div className="mine-predictions">
                     <p style={{ fontWeight: "bolder", color: 'grey', fontSize: 18, marginTop: 20 }}><strong>Mine Prediction for <u>{ selectedCompanyInfo['longName']}</u></strong><strong><span style={{ fontWeight: "bolder", color: 'grey', fontSize: 18, marginTop: 20 }}> is: {predictedPrice < selectedCompanyInfo['currentPrice'] ? <span style={{color:"red"}}>{parseFloat(predictedPrice).toFixed(2)}</span>: <span style={{color:"green"}}>{parseFloat(predictedPrice).toFixed(2)}</span>}</span></strong></p>
-                        {predictedPrice < selectedCompanyInfo['currentPrice'] ? <p style={{ fontWeight: "bolder", color: 'grey', fontSize: 18, marginTop: 20 }}>Our Suggestion is: <span style={{ color: "red", fontWeight: "bold" }} >SELL</span></p> : <p>Our Suggestion is: <span style={{ color: "green", fontWeight: "bold" }} >BUY</span></p>}
+                        {predictedPrice < selectedCompanyInfo['currentPrice'] ? <p style={{ fontWeight: "bolder", color: 'grey', fontSize: 18, marginTop: 20 }}>Our Suggestion is: <span style={{ color: "red", fontWeight: "bold" }} >SELL</span></p> : <p style={{ fontWeight: "bolder", color: 'grey', fontSize: 18, marginTop: 20 }}>Our Suggestion is: <span style={{ color: "green", fontWeight: "bold" }} >BUY</span></p>}
                     
                     </div>
                 }
