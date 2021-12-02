@@ -26,6 +26,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { setuser } from "Reducer/Action";
+import { setloader } from "Reducer/Action";
+import Loader from "components/Loader";
 
 
 function Admin() {
@@ -50,16 +52,26 @@ function Admin() {
     }
   }, [location]);
   
+  const loading = useSelector(state => state.loading)
   useEffect(() => {
-    if (auth?.currentUser?.uid) {
-      db.collection("users").doc(auth?.currentUser?.uid).get().then(doc => {
+    let uid = localStorage.getItem("Stockid");
+    if (uid) {
+      dispatch(setloader(true))
+      db.collection("users").doc(uid).get().then(doc => {
         if (doc.exists) {
-            dispatch(setuser(doc.data()))
+          dispatch(setuser(doc.data()))
+dispatch(setloader(false))
+          
         }
         else {
-            console.log("No DATA FOUND");
+          console.log("No DATA FOUND");
+dispatch(setloader(false))
+          
         }
-    }).catch(e => console.log("error:", e))
+      }).catch(e => {
+        console.log("error:", e);
+dispatch(setloader(false))
+})
       
     }
   },[])
@@ -80,9 +92,12 @@ function Admin() {
       progress: undefined,
       });
   }
+  
   return (
     <>
       <div className="wrapper">
+        
+      {loading && <Loader />}
         <Sidebar color={color} image={hasImage ? image : ""} routes={routes} />
         <div className="main-panel" ref={mainPanel}>
           <AdminNavbar />

@@ -49,7 +49,8 @@ function Header() {
   
   const signout = () => {
     logout()
-    dispatch(setuser({}))    
+    dispatch(setuser({}))
+    localStorage.removeItem("Stockid")
   }
 
 

@@ -58,8 +58,12 @@ const Login = (props) => {
             let res = await signInWithEmailAndPassword(data.email, data.password)
             if (res.error) {
                 seterror(res.error)
+                dispatch(setloader(false))
             }
             else {
+                if (res?.user?.uid) {
+                    localStorage.setItem("Stockid", res?.user?.uid)
+                }
                 db.collection("users").doc(res?.user?.uid).get().then(doc => {
                     if (doc.exists) {
                         dispatch(setuser(doc.data()))
@@ -68,8 +72,9 @@ const Login = (props) => {
                     }
                     else {
                         console.log("No DATA FOUND");
+                        dispatch(setloader(false))
                     }
-                }).catch(e => console.log("error:", e))
+                }).catch(e => { console.log("error:", e);dispatch(setloader(false)) })
             }
         // signInWithEmailAndPassword(auth, data.email, data.password)
         //     .then((userCredential) => {

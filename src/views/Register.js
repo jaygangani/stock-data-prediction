@@ -71,8 +71,13 @@ const Register = (props) => {
             let res = await registerWithEmailAndPassword(data.fname, data.lname, data.email, data.password);
             if (res.error) {
                 setregerror(res.error)
+                dispatch(setloader(false))
+
             }
             else {
+                if (res?.uid) {
+                    localStorage.setItem("Stockid", res?.uid)
+                }
                 db.collection("users").doc(res?.uid).get().then(doc => {
                     if (doc.exists) {
                         dispatch(setuser(doc.data()))
@@ -83,8 +88,12 @@ const Register = (props) => {
                     }
                     else {
                         console.log("No DATA FOUND");
+                        dispatch(setloader(false))
+
                     }
-                }).catch(e => console.log("error:", e))
+                }).catch(e => {
+                    console.log("error:", e);
+                    dispatch(setloader(false))    })
             }
         }
     }
