@@ -81,22 +81,22 @@ function Predict() {
             }
             <div className="stock-name container-sm">
                 <div className="form-group stock-name ">
-                    <label>search for the stock</label>
+                    <label>Search for the stock here</label>
                     <input type="text" className="form-control" placeholder="Enter Stock Name" name="tickername" onChange={searchStock} value={searchedstockname} />
                 </div>
                 {
                     searchedstockname.length > 0 && Object.keys(selectedCompanyInfo).length === 0 &&
                 <div className="stock-dropdown">
                     {(compnyList && compnyList?.length > 0)  ?
-                        compnyList?.map(item => <><div style={{cursor:"pointer", }} className="stock-dropdown-item" onClick={() =>predict(item.symbol)}><span style={{color:"#1DC7EA"}} title="Click to prict">{item?.symbol } </span> : {item?.name}</div></>)
+                        compnyList?.map(item => <><div style={{cursor:"pointer", }} className="stock-dropdown-item" onClick={() =>predict(item.symbol)}><span style={{color:"#1DC7EA"}} title="Click to predict">{item?.symbol } </span> : {item?.name}</div></>)
                         : <><span className="no-data-found">NO DATA FOUND &#x1F610;</span></>
                     }
                 </div>
                 }
                 {predictedPrice > 0 &&
                     <div className="mine-predictions">
-                    <p style={{ fontWeight: "bolder", color: 'grey', fontSize: 18, marginTop: 20 }}><strong>Mine Prediction for <u>{ selectedCompanyInfo['longName']}</u></strong></p>
-                        {predictedPrice < selectedCompanyInfo['currentPrice'] ? <p style={{ color: "red", fontWeight: "bold" }} >SELL</p> : <p style={{ color: "green", fontWeight: "bold" }} >BUY</p>}
+                    <p style={{ fontWeight: "bolder", color: 'grey', fontSize: 18, marginTop: 20 }}><strong>Mine Prediction for <u>{ selectedCompanyInfo['longName']}</u></strong><strong><span style={{ fontWeight: "bolder", color: 'grey', fontSize: 18, marginTop: 20 }}> is: {predictedPrice < selectedCompanyInfo['currentPrice'] ? <span style={{color:"red"}}>{parseFloat(predictedPrice).toFixed(2)}</span>: <span style={{color:"green"}}>{parseFloat(predictedPrice).toFixed(2)}</span>}</span></strong></p>
+                        {predictedPrice < selectedCompanyInfo['currentPrice'] ? <p style={{ fontWeight: "bolder", color: 'grey', fontSize: 18, marginTop: 20 }}>Our Suggestion is: <span style={{ color: "red", fontWeight: "bold" }} >SELL</span></p> : <p>Our Suggestion is: <span style={{ color: "green", fontWeight: "bold" }} >BUY</span></p>}
                     
                     </div>
                 }
